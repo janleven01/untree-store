@@ -1,0 +1,548 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-playfair);
+}
+
+/* START: Remove HTML Default Designs */
+
+.required {
+  font-size: 16px;
+}
+
+.required::after {
+  content: " *";
+  color: red;
+}
+
+select {
+  appearance: none;
+  scrollbar-width: none;
+  /*For Firefox*/
+  -ms-overflow-style: none;
+  /*For Internet Explorer 10+*/
+}
+
+select::-webkit-scrollbar {
+  /*For WebKit Browsers*/
+  width: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Remove Cancel Button */
+[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+/* Hide number input controls */
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+/* END: Remove HTML Default Designs */
+
+/* START: General styles */
+.max-container {
+  @apply w-full px-5 xs:px-8 md:px-16 lg:px-24 xl:px-36 max-w-[1440px] mx-auto;
+}
+
+.padding-y {
+  @apply lg:py-28 xs:py-16 py-10;
+}
+
+.padding-b {
+  @apply lg:pb-28 xs:pb-16 pb-10;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+/* END: General styles */
+
+/* Start: Reusable Styles */
+
+.contact-form {
+  @apply p-3 border border-black outline-none focus:border-purple;
+}
+
+.button-styles {
+  @apply border text-xs font-semibold border-black xs:py-4 py-3 sm:px-6 px-4 tracking-wider transition-colors duration-200 uppercase;
+}
+
+.input_buttonStyles {
+  @apply border border-black px-4 py-1 hover:text-white hover:bg-black transition-colors duration-200
+}
+
+.input_styles{
+  @apply border border-y-black px-2 py-1 text-center bg-white text-[14px] outline-none focus:border-purple
+}
+
+/* END: Reusable Styles */
+
+/* START: Navbar Styles */
+
+.navbar_header {
+ @apply w-full sticky top-0 md:py-5 sm:py-4 py-3 z-50 transition-all duration-500 ease-out max-lg:bg-white 
+}
+
+.navbar_menu-styles {
+  @apply hover:text-purple transition-colors duration-200 ease-in
+}
+
+.navbar_menu-container {
+  @apply absolute min-h-screen top-0 right-0 z-50 transition-all bg-white duration-500 ease-in-out shadow-xl
+}
+
+.navbar_menu-background {
+  @apply fixed top-0 min-w-full min-h-screen transition-all duration-500 ease-in-out z-0
+}
+
+.navbar_menu-active {
+  @apply bg-black/50 max-w-full max-h-screen visible
+}
+
+.navbar_menu-inactive {
+  @apply bg-transparent max-h-0 max-w-0 invisible
+}
+
+.navlinks_container {
+  @apply flex xl:gap-6 lg:gap-4 max-xl:pr-10 select-none
+}
+
+.navlinks_lg-dropdown {
+  @apply translate-y-5 transition-all duration-200 ease-in-out 
+}
+
+.navlinks_mobile-menu {
+  @apply transition-all duration-500 ease-in-out overflow-hidden
+}
+
+.navlinks_mobile-chevron {
+  @apply absolute -right-8 pl-1 top-1.5
+}
+
+.navlinks_rotate {
+  @apply transition-transform duration-500
+}
+
+.dropdown_links {
+  @apply absolute text-black border mt-3 rounded-xl pt-3 px-4 shadow-md w-32
+}
+
+.dropdown_links-text {
+  @apply flex flex-col text-[13px] pb-3 hover:text-purple
+}
+
+.navicon_cart {
+  @apply flex-center absolute -top-1 -right-2 bg-black text-white rounded-full w-4 h-4 text-xs
+}
+
+/* END: Navbar Styles */
+
+/* START: Hero Styles */
+.hero_title-container {
+  @apply 2xl:w-[30%] lg:w-[35vw] sm:w-[48vw] w-[55vw] absolute md:top-[30%] top-1/4
+}
+
+.hero_title {
+  @apply md:text-[48px] sm:text-[36px] text-2xl font-bold text-black/80 leading-normal pb-10
+}
+
+.hero_image {
+  @apply object-cover object-top w-full max-h-screen lg:min-h-screen sm:min-h-[94vh] min-h-[70vh]
+}
+
+.hero_image-dots {
+  @apply absolute lg:bottom-4 flex md:bottom-4 bottom-2 left-1/2 -translate-x-1/2
+}
+
+/* END: Hero Styles */
+
+/* START: Promo Styles */
+
+.promo_image {
+  @apply object-cover w-full sm:h-screen h-[75vh]
+}
+
+.promo_text-container {
+  @apply absolute flex-center flex-col top-1/2 -translate-y-1/2 xl:px-20 md:px-10 lg:mx-56 sm:mx-28 mx-6 gap-2
+}
+
+.promo_offer {
+  @apply uppercase text-white tracking-widest text-xs
+}
+
+.promo_title {
+  @apply text-white text-center text-5xl underline font-medium
+}
+
+.promo_description {
+  @apply text-white text-center tracking-tighter pt-5 pb-20
+}
+
+/* END: Promo Styles */
+
+/* START: Products Styles */
+
+.homeProducts_container {
+  @apply grid lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-4 cursor-pointer place-items-center
+}
+
+.products_image {
+  @apply object-cover xl:max-w-[300px] mx-auto hover:scale-110 transition-transform duration-300 ease-in-out
+}
+
+.products_new {
+  @apply absolute top-3.5 rotate-90  text-[10px] px-3 py-1 bg-lime-600 text-white
+}
+
+.products_sale {
+  @apply absolute top-4 rotate-90  text-[10px] px-3 py-1 bg-yellow-400 text-white
+}
+
+/* END: Products Styles */
+
+/* START: PopularProducts Styles */
+
+.loading-syles {
+  @apply flex-center max-container min-h-[50vh]
+}
+
+.popularProducts_container {
+  @apply relative min-w-full flex-center flex-col xs:min-w-[50%] lg:min-w-[33.333%] text-center
+}
+
+.popularProducts_image {
+  @apply object-contain hover:scale-105 transition-transform duration-300 ease-in-out
+}
+
+.popularProducts_new {
+  @apply absolute top-5 left-0 rotate-90 text-[10px] px-3 py-1 bg-lime-600 text-white 
+}
+
+.popularProducts_sale {
+  @apply absolute top-[22px] rotate-90 text-[10px] px-3 py-1 bg-yellow-400 text-white 
+}
+
+.popularProducts_dots {
+  @apply absolute left-1/2 -translate-x-1/2 sm:bottom-5 bottom-2
+}
+
+/* END: PopularProducts Styles */
+
+/* START: Services Styles */
+
+.services_container {
+  @apply bg-white flex-center flex-col py-6 px-3 flex-auto w-72
+}
+
+.services_label {
+  @apply uppercase text-xs text-center pt-8 tracking-[5px] font-medium
+}
+
+.services_description {
+  @apply text-center text-gray-400 text-sm pt-3
+}
+
+/* END: Services Styles */
+
+/* START: Footer Styles */
+
+.footer_about-links-container {
+  @apply flex gap-14 max-lg:flex-wrap
+}
+
+.footer_about-container {
+  @apply flex flex-col max-w-full
+}
+
+.footer_about-description {
+  @apply text-sm leading-relaxed pt-2 text-justify
+}
+
+.footer_about-input {
+  @apply border border-black p-3 outline-none w-full max-w-[50vw]
+}
+
+.footer_links-container {
+  @apply flex justify-between max-sm:gap-4 w-full
+}
+
+.footer_links-text {
+  @apply text-[15px] text-black/80 hover:text-black cursor-pointer
+}
+
+.footer_socmed-container {
+  @apply flex justify-center gap-5 pt-20
+}
+
+.footer_socmed-icons {
+  @apply bg-secondary rounded-full p-2 w-9 h-9 hover:bg-purple/70
+}
+
+.footer_copyrights {
+  @apply text-slate-500 text-[15px] text-center
+}
+
+.footer_copyrights-href {
+  @apply border-b border-slate-500 hover:text-black hover:border-black
+}
+
+/* END: Footer Styles */
+
+/* START: Shop Styles */
+
+.shop_category-container {
+ @apply flex flex-col pb-10 lg:min-w-[15vw] sm:min-w-[20vw]
+}
+
+.displayProducts_container {
+  @apply grid lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-4 cursor-pointer place-items-center
+}
+
+.displayProducts_pageNumbers {
+  @apply flex-center border rounded-full w-10 h-10 hover:border-black gap-2
+}
+
+.displayProducts_arrow-styles {
+  @apply w-10 h-10 border p-3 rounded-full hover:border-black
+}
+
+.productSort_container {
+  @apply flex-between max-sm:flex-col max-sm:items-start py-5 gap-5
+}
+
+.productSort_active {
+  @apply absolute flex flex-col bg-white border border-slate-400 rounded-lg w-44 -left-1 top-0 lg:gap-1 gap-2 z-30 overflow-hidden
+}
+
+.productDetail_addCart {
+  @apply bg-purple/85 text-white/90 hover:bg-purple hover:text-white border-none w-[60%]
+}
+
+/* END: Shop Styles */
+
+/* START: About Styles */
+
+.about_image {
+  @apply object-cover object-top w-full max-h-screen lg:min-h-screen sm:min-h-[94vh] min-h-[70vh]
+}
+
+.about_title-container {
+  @apply lg:w-[35vw] sm:w-[48vw] w-[55vw] absolute md:top-[30%] top-1/4
+}
+
+.about_title {
+  @apply md:text-[48px] sm:text-[36px] text-2xl font-bold text-white  leading-normal pb-10 animate-slideUpShort
+}
+
+.about_button-explore {
+  @apply button-styles bg-black text-white hover:brightness-125 animate-slideUpLong
+}
+
+.about_dataCount {
+  @apply flex justify-between py-14 lg:w-[80%] sm:w-[40%] xs:w-[60%] w-full
+}
+
+.about_button-shopNow {
+  @apply button-styles bg-black text-white hover:brightness-110
+}
+
+.about_button-learnMore {
+  @apply button-styles bg-white text-black hover:bg-black hover:text-white
+}
+
+.about_image2-container {
+  @apply absolute 2xl:-left-32 lg:-left-28 left-0 top-1/2 -translate-y-1/2 bg-aboutColor w-80 h-[70%] z-0
+}
+
+.about_image2 {
+  @apply relative object-cover h-full w-[70vw] z-10
+}
+
+.about_links {
+  @apply bg-secondary rounded-full p-2 w-9 h-9 hover:bg-purple/70
+}
+
+/* END: About Styles */
+
+/* START: Thankyou Styles */
+
+.thankyou_container {
+  @apply flex flex-col items-center pt-20 sm:min-h-[90vh] min-h-[70vh] gap-14 bg-secondary 
+}
+
+.thankyou_checkStyles {
+  @apply absolute w-9 h-10 left-[60%] transform -translate-x-1/2 top-1/2 -translate-y-1/2 text-purple
+}
+
+.thankyou_circleStyles {
+  @apply absolute w-20 h-20 top-4 left-2 z-0 p-4 bg-purple/20 rounded-full
+}
+
+.thankyou_button-shop {
+  @apply button-styles bg-white text-black hover:bg-black hover:text-white
+}
+
+/* END: Thankyou Styles */
+
+/* START: Contact Styles */
+
+.contact_form-container {
+  @apply w-full flex max-lg:flex-col gap-5 justify-between
+}
+
+.contact_form-button {
+  @apply bg-purple text-white border-none w-[40%] sm:w-[30%] hover:brightness-105
+}
+
+/* END: Contact Styles */
+
+/* START: Cart Styles */
+
+.empty_cartStyles {
+  @apply absolute left-1/2 transform -translate-x-1/2 top-32
+}
+
+.cart_table {
+  @apply px-1 text-center border
+}
+
+.cart_total-title {
+  @apply font-medium tracking-wide
+}
+
+.cart_total {
+  @apply font-semibold tracking-wide
+}
+
+/* END: Cart Styles */
+
+/* START: Checkout Styles */
+
+.billingDetails-container {
+  @apply grid grid-cols-2 max-md:grid-cols-1 gap-10 pt-14
+}
+
+.checkout_transition {
+  @apply transition-all duration-500 ease-in-out overflow-hidden
+}
+
+.coupon_input {
+  @apply w-2/3 border-black px-2 xs:py-3.5 py-2.5 border outline-none focus:border-purple text-sm
+}
+
+.checkout_total {
+  @apply font-semibold py-3
+}
+
+.checkout_placeOrder {
+  @apply pt-10 text-center button-styles bg-black text-white hover:brightness-125 w-full
+}
+
+.payment_button {
+  @apply w-full text-black/80 underline hover:no-underline text-start text-sm
+}
+
+.payment_content {
+  @apply text-sm pt-2 transition-all duration-700 ease-in-out overflow-hidden
+}
+
+/* END: Checkout Styles */
+
+/* START: Search Styles */
+
+.search_background {
+  @apply fixed inset-0 transition-all duration-500 ease-in-out
+}
+
+.search_header {
+  @apply max-container rounded-b-xl overflow-hidden h-[50rem] transition-all duration-500 ease-in-out
+}
+
+.search_header-true{
+  @apply bg-white shadow-xl max-h-[35rem] sm:max-h-[30rem] lg:max-h-[20rem]
+}
+
+.search_header-false {
+  @apply max-h-0 bg-transparent
+}
+
+.search_result-header{
+  @apply flex max-lg:flex-col w-full px-2 lg:gap-5 h-[100vh]
+}
+
+.search_result-collection {
+  @apply w-full lg:w-1/3 lg:border-r border-b border-black py-2
+}
+
+.search_result-collectionName {
+  @apply flex flex-col pt-1 hover:text-purple/90 md:text-base xs:text-xs text-[10px] px-1
+}
+
+.search_result-image-container {
+  @apply grid grid-cols-2 sm:grid-cols-4 sm:pt-2 gap-4
+}
+
+/* END: Search Styles */
+
+
+@keyframes slideUpShort {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpLong {
+  from {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .animate-slideUpShort {
+    animation: slideUpShort 0.7s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slideUpLong {
+    animation: slideUpLong 0.7s ease-out forwards;
+  }
+}
