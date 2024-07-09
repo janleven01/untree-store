@@ -53,6 +53,14 @@ textarea {
   appearance: none;
 }
 
+/* Remove rounded default in IOS */
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+     border-radius: 0;
+}
+
 /* Hide number input controls */
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
