@@ -216,7 +216,7 @@ textarea {
 }
 
 .products_image {
-  @apply object-cover xl:max-w-[300px] mx-auto hover:scale-110 transition-transform duration-300 ease-in-out
+  @apply object-cover hover:scale-110 transition-transform duration-300 ease-in-out
 }
 
 .products_new {

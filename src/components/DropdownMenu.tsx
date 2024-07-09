@@ -12,7 +12,6 @@ const DropdownMenu = ({ items, scrolled, sideBar }: DropDownMenuProps) => {
                 item.href !== "/shop"
                   ? { pathname: item.href }
                   : { pathname: item.href, query: { category: item.name } },
-              scroll: false,
             };
             return (
               <Link
@@ -40,7 +39,6 @@ const DropdownMenu = ({ items, scrolled, sideBar }: DropDownMenuProps) => {
                   item.href !== "/shop"
                     ? { pathname: item.href }
                     : { pathname: item.href, query: { category: item.name } },
-                scroll: false,
               };
               return (
                 <Link
