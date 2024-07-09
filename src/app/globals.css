@@ -55,9 +55,7 @@ textarea {
 
 /* Remove rounded default in IOS */
 textarea,
-input[type="text"],
-input[type="button"],
-input[type="submit"] {
+input[type] {
      border-radius: 0;
 }
 
